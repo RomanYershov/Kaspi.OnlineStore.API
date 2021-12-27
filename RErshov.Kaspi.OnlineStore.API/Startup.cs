@@ -26,6 +26,17 @@ namespace RErshov.Kaspi.OnlineStore.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy( "AllowOrigin",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3001")
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +54,7 @@ namespace RErshov.Kaspi.OnlineStore.API
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseStaticFiles();
         }
     }
 }

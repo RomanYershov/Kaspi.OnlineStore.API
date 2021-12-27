@@ -11,7 +11,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using RErshov.Kaspi.OnlineStore.API.BAL;
+using RErshov.Kaspi.OnlineStore.API.BAL.Services;
 using RErshov.Kaspi.OnlineStore.API.DAL;
+using RErshov.Kaspi.OnlineStore.API.Models;
 
 namespace RErshov.Kaspi.OnlineStore.API
 {
@@ -28,6 +31,10 @@ namespace RErshov.Kaspi.OnlineStore.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddScoped<IStoreService<OrderModel>, OrdersService>();
+            services.AddScoped<IStoreService<ProductModel>, ProductService>();
+
 
             var conStr = Configuration.GetConnectionString("DefaultConnection");
 

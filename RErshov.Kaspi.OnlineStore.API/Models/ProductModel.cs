@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace RErshov.Kaspi.OnlineStore.API.Models
 {
-    public class ProductModel
+    public class ProductModel : ApiModelBase
     {
-        public int ID { get; set; }
         public String Name { get; set; }
         public Decimal Cost { get; set; }
         public String ImgUrl { get; set; }

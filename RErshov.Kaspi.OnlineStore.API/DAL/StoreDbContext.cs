@@ -15,5 +15,6 @@ namespace RErshov.Kaspi.OnlineStore.API.DAL
         }
 
         public DbSet<ProductModel> Products  { get; set; }
+        public DbSet<OrderModel> Orders  { get; set; }
     }
 }

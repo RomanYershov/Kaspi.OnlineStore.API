@@ -14,20 +14,24 @@ namespace RErshov.Kaspi.OnlineStore.API.Controllers
     [EnableCors("AllowOrigin")]
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class OrderController : ControllerBase
     {
-        private readonly IStoreService<ProductModel> _productService;
+        private readonly IStoreService<OrderModel> _ordersService;
 
-        public ProductsController(IStoreService<ProductModel> service) => _productService = service;
+        public OrderController(IStoreService<OrderModel> service) => _ordersService = service;
 
 
-        [HttpGet("[action]")]
-        public IEnumerable<ProductModel> GetProducts()
+        [HttpPost("[action]")]
+        public void OrderInsert(OrderModel order)
         {
-            return _productService.GetAll();
+            _ordersService.Insert(order);
         }
 
-
+        [HttpGet("[action]")]
+        public IEnumerable<OrderModel> GetAll()
+        {
+            return _ordersService.GetAll();
+        }
 
     }
 }

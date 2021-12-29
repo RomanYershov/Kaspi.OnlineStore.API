@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using RErshov.Kaspi.OnlineStore.API.DAL;
 using RErshov.Kaspi.OnlineStore.API.Models;
 
@@ -27,7 +28,7 @@ namespace RErshov.Kaspi.OnlineStore.API.BAL
         public void Insert(OrderModel model)
         {
              model.CreatedAt = DateTime.Now;
-
+           
             _dbContext.Add(model);
             _dbContext.SaveChanges();
         }

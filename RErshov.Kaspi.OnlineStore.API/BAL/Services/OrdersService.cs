@@ -34,7 +34,8 @@ namespace RErshov.Kaspi.OnlineStore.API.BAL
 
         public void Update(OrderModel model)
         {
-            throw new NotImplementedException();
+            _dbContext.Update(model);
+            _dbContext.SaveChanges();
         }
     }
 }

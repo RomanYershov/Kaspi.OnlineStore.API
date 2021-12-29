@@ -47,7 +47,7 @@ namespace RErshov.Kaspi.OnlineStore.API
                 options.AddPolicy( "AllowOrigin",
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:3001")
+                        builder.WithOrigins("http://localhost:3000", "http://localhost:3001")
                             .AllowAnyHeader()
                             .AllowAnyMethod();
                     });

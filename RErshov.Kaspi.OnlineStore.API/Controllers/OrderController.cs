@@ -26,7 +26,11 @@ namespace RErshov.Kaspi.OnlineStore.API.Controllers
         {
             _ordersService.Insert(order);
         }
-
+        [HttpPost("[action]")]
+        public void OrderUpdateStatus(OrderModel order)
+        {
+            _ordersService.Update(order);
+        }
         [HttpGet("[action]")]
         public IEnumerable<OrderModel> GetAll()
         {
